@@ -1,0 +1,44 @@
+extends ../layout
+
+block prepend styles
+    link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='sold-ticket-add-form' name='sold-ticket-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='passengerId') Passenger ID
+            div(class='col-md-9')
+                input(id='passengerId' name='passengerId' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='trainId') Train ID
+            div(class='col-md-9')
+                input(id='trainId' name='trainId' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='ticketId') Ticket ID
+            div(class='col-md-9')
+                input(id='ticketId' name='ticketId' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='date') Date
+            div(class='col-md-9')
+                input(id='date' name='date' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' class='btn btn-primary') Add
+    div.list-wrapper
+        table(id='sold-tickets-list')
+
+block append scripts
+    script(src='/static/js/models/train.js')
+    script(src='/static/js/models/ticket.js')
+    script(src='/static/js/models/passenger.js')
+    script(src='/static/js/models/sold-ticket.js')
+    script(src='/static/js/middlewares/ticketValidator.js')
+
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/sold-ticket.js')
